@@ -1,0 +1,14 @@
+<mat-dialog-content>
+    <h2>Select One</h2>
+    <form>
+        <mat-form-field class="example-full-width" style="width: 100%">
+            <input type="text" placeholder="Search Item" autocomplete="off" matInput [formControl]="myControl">
+
+        </mat-form-field>
+    </form>
+    <div *ngIf="filteredValue.length==0">No match found</div>
+    <mat-option *ngFor="let option of filteredValue" [value]="option" (onSelectionChange)="onClick($event)">
+        {{option.name}}
+    </mat-option>
+
+</mat-dialog-content>

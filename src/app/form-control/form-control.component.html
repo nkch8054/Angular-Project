@@ -1,0 +1,36 @@
+<form style="width: 300px; margin: 20px">
+    <div *ngFor="let control of data" class="form-group">
+        <div *ngIf="control.field=='TXT'">
+            <label>{{control.labelName}}</label>
+            <input type="control.type" name="{{control.name}}" class="form-control">
+        </div>
+        <div *ngIf="control.field=='Boolean'">
+            <label>{{control.labelName}}</label>
+            <div *ngFor="let gender of control.fieldList">
+                <label>{{gender.value}}
+                    <input type="{{gender.type}}" name="{{gender.name}}">
+                </label>
+            </div>
+        </div>
+    </div>
+</form>
+<input type="text" (keyup)="keycode($event)" #ff appRainbow>
+
+<div class="example-container">
+    <h2>Done</h2>
+    <div cdkDropList #toDoList="cdkDropList" [cdkDropListData]="todo" [cdkDropListConnectedTo]="[doneList]" class="example-list"
+        (cdkDropListDropped)="drop($event)">
+        <div class="example-box" *ngFor="let item of todo" cdkDrag>{{item.name}}</div>
+    </div>
+</div>
+<div class="example-container">
+    <h2>Done</h2>
+    <div cdkDropList #doneList="cdkDropList" [cdkDropListData]="done" [cdkDropListConnectedTo]="[todoList]" class="example-list"
+        (cdkDropListDropped)="drop($event)">
+        <div class="example-box" *ngFor="let item of done" cdkDrag>{{item.name}}</div>
+    </div>
+</div>
+<div>
+    <button class="btn btn-primary" (click)="down($event)" #clone>Drag me</button>
+    <button class="btn btn-primary box" cdkDrag [hidden]="abc">Drag me</button>
+</div>

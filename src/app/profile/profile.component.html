@@ -1,0 +1,8 @@
+<!-- <app-profie-element [isRed]="post.red" (changeColor)="onChange($event)"></app-profie-element> -->
+
+<app-profie-element id="1" *ngIf="shouldShow"></app-profie-element>
+<app-profie-element id="2" *ngIf="!shouldShow"></app-profie-element>
+
+<button (click)="toggle()">Toggle</button>
+
+<div>Selected: {{selectedPane}}</div>
